@@ -52,7 +52,7 @@ public class DataBaseHelser extends SQLiteOpenHelper {
     public void update (String id, String text) {
         SQLiteDatabase database = getWritableDatabase();
 
-        String query = "UPDATE "+ nomeTabela+ "SET text = '"+ text + "' WHERE id = " + id;
+        String query = "UPDATE "+ nomeTabela+ " SET text = '"+ text + "' WHERE id = '" + id+"'";
 
         database.execSQL(query);
         database.close();
@@ -61,7 +61,7 @@ public class DataBaseHelser extends SQLiteOpenHelper {
     public void delete (String id) {
         SQLiteDatabase database = getWritableDatabase();
 
-        String query = "DELETE FROM " + nomeTabela+" WHERE id = "+id;
+        String query = "DELETE FROM " + nomeTabela+" WHERE id = '"+id+"'";
 
         database.execSQL(query);
 

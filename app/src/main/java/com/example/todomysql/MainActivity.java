@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recycler);
-        floatingActionButton = findViewById(R.id.floating);
-        button = findViewById(R.id.botao);
+        floatingActionButton = findViewById(R.id.floatingButton);
+
 
         dataBaseHelser = new DataBaseHelser(getApplicationContext());
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mainAdapter = new MainAdapter(this,dataBaseHelser.getArray());
 
         recyclerView.setAdapter(mainAdapter);
-        button.setOnClickListener(new View.OnClickListener() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Dialog dialog = new Dialog(MainActivity.this);
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-        button.setOnLongClickListener(new View.OnLongClickListener() {
+        floatingActionButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
 
