@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         String sText = editText.getText().toString().trim();
 
-                        String sDate = new SimpleDateFormat("dd MM yyyy", Locale.US).format(new Date());
+                        String sDate = new SimpleDateFormat("dd/MM/yyyy", Locale.US).format(new Date());
 
                         dataBaseHelser.insert(sText,sDate);
                         mainAdapter.updateArray(dataBaseHelser.getArray());
