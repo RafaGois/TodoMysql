@@ -12,6 +12,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class DataBaseHelser extends SQLiteOpenHelper {
 
     private String nomeTabela = "tbl_Tasks";
@@ -110,5 +112,34 @@ public class DataBaseHelser extends SQLiteOpenHelper {
         database.close();
 
         return array;
+    }
+
+    public ArrayList<Dado> getArray2 () {
+        SQLiteDatabase database = getWritableDatabase();
+
+        JSONArray array = new JSONArray();
+        ArrayList<Dado> arr = new ArrayList<>();
+
+        String sQuery = "SELECT * FROM "+ nomeTabela;
+
+        Cursor cursor = database.rawQuery(sQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                try {
+
+                    Dado dado = new Dado(cursor.getInt(0),cursor.getString(1),cursor.getString(2));
+                    arr.add(dado);
+
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        database.close();
+
+        return arr;
     }
 }
