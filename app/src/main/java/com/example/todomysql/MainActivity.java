@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     DataBaseHelser dataBaseHelser;
     MainAdapter mainAdapter;
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,5 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        dataBaseHelser.getArray2();
     }
+
 }

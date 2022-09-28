@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import org.jetbrains.annotations.TestOnly;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -117,7 +118,6 @@ public class DataBaseHelser extends SQLiteOpenHelper {
     public ArrayList<Dado> getArray2 () {
         SQLiteDatabase database = getWritableDatabase();
 
-        JSONArray array = new JSONArray();
         ArrayList<Dado> arr = new ArrayList<>();
 
         String sQuery = "SELECT * FROM "+ nomeTabela;
@@ -134,7 +134,6 @@ public class DataBaseHelser extends SQLiteOpenHelper {
                 } catch (RuntimeException e) {
                     System.out.println(e.getMessage());
                 }
-
             } while (cursor.moveToNext());
         }
         cursor.close();

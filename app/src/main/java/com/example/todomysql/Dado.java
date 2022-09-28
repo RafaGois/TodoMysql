@@ -12,15 +12,15 @@ public class Dado {
         this.date = date;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public String getText() {
+        return text;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public String getDate() {
+        return date;
     }
 }
